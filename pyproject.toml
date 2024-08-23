@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ezblock"
+version = "0.0.1"
+authors = [
+  { name="Benjamin Anderson", email="andersonbcdefg@gmail.com" },
+]
+description = "A simple CLI tool to block and unblock websites by modifying /etc/hosts"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache 2.0 License",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.scripts]
+website-blocker = "website_blocker:main"
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/website-blocker"
+"Bug Tracker" = "https://github.com/yourusername/website-blocker/issues"
+
+[tool.setuptools]
+packages = ["website_blocker"]
