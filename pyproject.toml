@@ -10,7 +10,7 @@ authors = [
 ]
 description = "A simple CLI tool to block and unblock websites by modifying /etc/hosts"
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Apache 2.0 License",
@@ -18,11 +18,7 @@ classifiers = [
 ]
 
 [project.scripts]
-website-blocker = "website_blocker:main"
-
-[project.urls]
-"Homepage" = "https://github.com/yourusername/website-blocker"
-"Bug Tracker" = "https://github.com/yourusername/website-blocker/issues"
+ezblock = "ezblock:main"
 
 [tool.setuptools]
-packages = ["website_blocker"]
+packages = {find = {where = ["src"]}}
