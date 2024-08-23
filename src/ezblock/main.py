@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import fire
 
 HOSTS_PATH = '/etc/hosts'
 LOCALHOST = '127.0.0.1'
@@ -42,24 +43,8 @@ def list_blocked_websites():
         print("No websites are currently blocked")
 
 def main():
-    parser = argparse.ArgumentParser(description="Block or unblock websites by modifying /etc/hosts")
-    parser.add_argument("action", choices=["block", "unblock", "list"], help="Action to perform")
-    parser.add_argument("domain", nargs="?", help="Domain to block or unblock")
-
-    args = parser.parse_args()
-
-    if os.geteuid() != 0:
-        print("This script must be run with sudo privileges")
-        sys.exit(1)
-
-    if args.action == "block" and args.domain:
-        block_website(args.domain)
-    elif args.action == "unblock" and args.domain:
-        unblock_website(args.domain)
-    elif args.action == "list":
-        list_blocked_websites()
-    else:
-        parser.print_help()
-
-if __name__ == "__main__":
-    main()
+    fire.Fire({
+        "block": block_website,
+        "unblock": unblock_website,
+        "list": list_blocked_websites
+    })

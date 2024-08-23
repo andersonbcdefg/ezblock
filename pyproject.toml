@@ -17,6 +17,8 @@ classifiers = [
     "Operating System :: POSIX :: Linux",
 ]
 
+dependencies = ["fire"]
+
 [project.scripts]
 ezblock = "ezblock:main"
 
