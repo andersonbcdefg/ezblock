@@ -20,7 +20,7 @@ classifiers = [
 dependencies = ["fire"]
 
 [project.scripts]
-ezblock = "ezblock:main"
+ezblock = "ezblock.main:main"
 
 [tool.setuptools]
 packages = {find = {where = ["src"]}}
